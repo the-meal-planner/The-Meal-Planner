@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        //Set up Firebase
+        FirebaseApp.configure();
+        
+        //Define the storyboard
+        let authStoryboard: UIStoryboard = UIStoryboard(name: "Authentication", bundle: nil);
+        
+        let signInViewController = authStoryboard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController;
+        
+        //Define the tab bar storyboard
+        let tabStoryboard: UIStoryboard = UIStoryboard(name: "Tabs", bundle: nil);
+        
+        let mainTabBarController = tabStoryboard.instantiateViewController(withIdentifier: "MainTabBarController") as! MainTabBarController;
+        
+        
+        
+        //Listen For Auth State Change
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if user != nil {
+                //The user is logged in, so display the Tab View
+                self.window = UIWindow(frame: UIScreen.main.bounds);
+                self.window?.rootViewController = mainTabBarController;
+                self.window?.makeKeyAndVisible();
+            } else {
+                //The user is not logged in, so we display the SignInView
+                self.window = UIWindow(frame: UIScreen.main.bounds);
+                self.window?.rootViewController = signInViewController;
+                self.window?.makeKeyAndVisible();
+            }
+        }
+        
         return true
     }
 
