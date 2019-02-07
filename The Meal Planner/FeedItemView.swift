@@ -29,6 +29,10 @@ class FeedItemView: UITableViewCell {
         super.awakeFromNib();
         
         self.NotificationView.layer.cornerRadius = 3.0;
+        self.NotificationView.layer.shadowOffset = CGSize(width: 2, height: 2);
+        self.NotificationView.layer.shadowColor = UIColor.lightGray.cgColor;
+        self.NotificationView.layer.shadowRadius = 2.0;
+        self.NotificationView.layer.shadowOpacity = 1;
     }
     
     required init?(coder aDecoder: NSCoder) {

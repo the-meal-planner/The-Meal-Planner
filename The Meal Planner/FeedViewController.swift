@@ -9,12 +9,13 @@ import Foundation
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
 class FeedViewController: UITableViewController {
     
     var feed: [NSDictionary] = [];
     var mainActivityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .gray);
-    var viewProfileImage: UIImage = UIImage(named: "icons8-male-user-filled-24.png")!;
+    var viewProfileImage: UIImage = UIImage(named: "view_profile.png")!;
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,15 +27,54 @@ class FeedViewController: UITableViewController {
         self.mainActivityIndicator.hidesWhenStopped = true;
         self.view.addSubview(self.mainActivityIndicator);
         
-        //Resize image
-        let image = self.resizeImage(image: self.viewProfileImage, targetSize: CGSize(width: 30.0, height: 30.0));
         
-        //View profile button
-        let viewProfileButton = UIBarButtonItem(image: image, style: .plain, target: nil, action: #selector(FeedViewController.viewProfile));
+        
+        let profile = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25));
+        profile.translatesAutoresizingMaskIntoConstraints = false;
+        profile.clipsToBounds = true;
+        
+        profile.image = self.viewProfileImage;
+        
+        //Gesture recognizer
+        let viewProfileTap = UITapGestureRecognizer(target: self, action: #selector(FeedViewController.viewProfile(_:)));
+        
+        profile.isUserInteractionEnabled = true;
+        profile.addGestureRecognizer(viewProfileTap);
+        
+        
+        let viewProfileButton = UIBarButtonItem(customView: profile);
+        
+        viewProfileButton.target = self;
+        viewProfileButton.action = #selector(FeedViewController.viewProfile(_:));
+        
+        
         
         self.navigationItem.rightBarButtonItem = viewProfileButton;
         
+        
+        
         fetchFeedData();
+        
+        
+        
+        
+        //The current UID
+        let uid = Auth.auth().currentUser?.uid;
+        
+        //Download from the storage bucket
+        Storage.storage().reference(withPath: "/user/" + uid! + "/profile.png").getData(maxSize: 1 * 1024 * 1024){ (data, error) in
+            
+            if let error = error {
+                //An error occurred
+            } else {
+                print("Data received");
+                
+                profile.image = UIImage(data: data!);
+                
+                viewProfileButton.customView = profile;
+            }
+            
+        }
     }
     
     func fetchFeedData() {
@@ -66,6 +106,11 @@ class FeedViewController: UITableViewController {
                 
             }
             
+            if self.feed.count == 1 {
+                self.feed.append([:]);
+            }
+            
+            
             self.mainActivityIndicator.stopAnimating();
             self.tableView.reloadData();
             
@@ -81,15 +126,28 @@ class FeedViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if indexPath.row > 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FeedItem", for: indexPath) as! FeedItemView;
             
-            cell.Title?.text = self.feed[indexPath.row]["title"] as? String;
-            cell.Content?.text = self.feed[indexPath.row]["content"] as? String;
-           // cell.Content?.sizeToFit();
-            //cell.NotificationView?.sizeToFit();
+            if self.feed.count == 2 {
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "NoFeed", for: indexPath);
+                
+                return cell;
+                
+            } else {
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "FeedItem", for: indexPath) as! FeedItemView;
+                
+                cell.Title?.text = self.feed[indexPath.row]["title"] as? String;
+                cell.Content?.text = self.feed[indexPath.row]["content"] as? String;
+                // cell.Content?.sizeToFit();
+                //cell.NotificationView?.sizeToFit();
+                
+                return cell;
+                
+            }
             
-            return cell;
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MealPlanItem", for: indexPath) as! UpNextTableCell;
             
@@ -98,10 +156,13 @@ class FeedViewController: UITableViewController {
     }
     
     
-    @objc func viewProfile() {
-        print("Button Tapped");
+    
+    @objc func viewProfile(_ sender: UITapGestureRecognizer!) {
+        print("Button tapped");
+        performSegue(withIdentifier: "ProfileSegue", sender: self)
     }
     
+    //For resizing images
     func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
         let size = image.size
         
@@ -127,6 +188,7 @@ class FeedViewController: UITableViewController {
         
         return newImage!
     }
+    
     /*
     // MARK: - Navigation
 
