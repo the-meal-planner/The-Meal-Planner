@@ -162,6 +162,12 @@ class FeedViewController: UITableViewController {
         performSegue(withIdentifier: "ProfileSegue", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as? ProfileViewController;
+        let uid = Auth.auth().currentUser?.uid;
+        destination!.uid = uid!;
+    }
+    
     //For resizing images
     func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
         let size = image.size

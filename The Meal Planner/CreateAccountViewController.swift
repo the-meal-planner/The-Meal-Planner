@@ -86,29 +86,29 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         activityIndicator.startAnimating();
         
         //Create the account
-        let firstName = FirstName.text as! String;
-        let lastName = LastName.text as! String;
-        let email = Email.text as! String;
-        let password = Password.text as! String;
-        let confirmPassword = Password.text as! String;
+        let firstName = FirstName.text;
+        let lastName = LastName.text;
+        let email = Email.text;
+        let password = Password.text;
+        let confirmPassword = Password.text;
         
         //Are we going to continue?
         var valid = true;
         
         //Check for valid first name
-        if firstName.count == 0 {
+        if firstName!.count == 0 {
             valid = false;
             self.Error.text = "First Name is a required field";
         }
         
         //Check for invalid last name
-        if lastName.count == 0 {
+        if lastName!.count == 0 {
             valid = false;
             self.Error.text = "Last Name is a required field";
         }
         
         //Check for invalid email
-        if email.count == 0 {
+        if email!.count == 0 {
             valid = false;
             self.Error.text = "Email is a required field";
         }
@@ -122,9 +122,11 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         if valid {
             
             let data: NSDictionary = [
-                "firstname": firstName,
-                "lastname": lastName,
-                "email": email,
+                "name":[
+                    "first": firstName,
+                    "last": lastName
+                ],
+                "email": email as Any,
                 "data": [
                     "mealtimes":[],
                     "plan": [
@@ -165,7 +167,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                 ]
             ];
             
-            Auth.auth().createUser(withEmail: email, password: password, completion: { (authResult, error) in
+            Auth.auth().createUser(withEmail: email!, password: password!, completion: { (authResult, error) in
                 
                 if error != nil {
                     if let errorCode = AuthErrorCode(rawValue: error!._code) {

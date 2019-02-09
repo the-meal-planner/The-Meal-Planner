@@ -37,6 +37,7 @@
 		43CE2E59220B60B800257469 /* icons8-contacts-filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 43CE2E58220B60B800257469 /* icons8-contacts-filled-50.png */; };
 		43CE2E5B220B65CD00257469 /* view_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 43CE2E5A220B65CD00257469 /* view_profile.png */; };
 		43CE2E5D220B7ED500257469 /* MealsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CE2E5C220B7ED500257469 /* MealsTabViewController.swift */; };
+		43CE2E5F220CE3DA00257469 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CE2E5E220CE3DA00257469 /* ProfileViewController.swift */; };
 		43D8C7DC21F9435F00BB360E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43D8C7DB21F9435F00BB360E /* GoogleService-Info.plist */; };
 		5A347BDE35A88CA6DC97146D /* Pods_The_Meal_Planner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C3DBE226C3753628053F48 /* Pods_The_Meal_Planner.framework */; };
 /* End PBXBuildFile section */
@@ -95,6 +96,7 @@
 		43CE2E58220B60B800257469 /* icons8-contacts-filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-contacts-filled-50.png"; sourceTree = "<group>"; };
 		43CE2E5A220B65CD00257469 /* view_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = view_profile.png; sourceTree = "<group>"; };
 		43CE2E5C220B7ED500257469 /* MealsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsTabViewController.swift; sourceTree = "<group>"; };
+		43CE2E5E220CE3DA00257469 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		43D8C7DB21F9435F00BB360E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		66A2CEB89E92BFF5523DFE58 /* Pods-The Meal PlannerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Meal PlannerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Meal PlannerTests/Pods-The Meal PlannerTests.release.xcconfig"; sourceTree = "<group>"; };
 		6BB1C4663E1B18D522889C9D /* Pods-The Meal PlannerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Meal PlannerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Meal PlannerUITests/Pods-The Meal PlannerUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				435AE1632203C65100A0EF84 /* WebViewController.swift */,
 				434666AA21F91CBE00918635 /* ViewController.swift */,
 				43B2C65821F95A8C001141F1 /* CustomComponents.swift */,
+				43CE2E5E220CE3DA00257469 /* ProfileViewController.swift */,
 				435AE1612202AF8400A0EF84 /* FeedViewController.swift */,
 				43CE2E5C220B7ED500257469 /* MealsTabViewController.swift */,
 				4349540822063055007DF427 /* Authentication.storyboard */,
@@ -478,6 +481,7 @@
 				43CE2E5D220B7ED500257469 /* MealsTabViewController.swift in Sources */,
 				43BB05732201276F00103BB0 /* CreateAccountViewController.swift in Sources */,
 				435AE1642203C65100A0EF84 /* WebViewController.swift in Sources */,
+				43CE2E5F220CE3DA00257469 /* ProfileViewController.swift in Sources */,
 				435AE1602202ACB300A0EF84 /* ForgotPasswordViewController.swift in Sources */,
 				43BB05712201270B00103BB0 /* SignInViewController.swift in Sources */,
 				43CD5096220290A40003FF00 /* MainTabBarController.swift in Sources */,

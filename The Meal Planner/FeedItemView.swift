@@ -17,6 +17,7 @@ class FeedItemView: UITableViewCell {
     @IBOutlet weak var ProfileImage: UIImageView!
     @IBOutlet weak var Title: UILabel!
     @IBOutlet weak var Content: UILabel!
+    @IBOutlet weak var Timestamp: UILabel!
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
