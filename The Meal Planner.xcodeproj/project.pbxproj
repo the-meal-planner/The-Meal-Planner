@@ -39,6 +39,9 @@
 		43CE2E5D220B7ED500257469 /* MealsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CE2E5C220B7ED500257469 /* MealsTabViewController.swift */; };
 		43CE2E5F220CE3DA00257469 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CE2E5E220CE3DA00257469 /* ProfileViewController.swift */; };
 		43D8C7DC21F9435F00BB360E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43D8C7DB21F9435F00BB360E /* GoogleService-Info.plist */; };
+		43FF0778220F7D6900D0D825 /* ProfileTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FF0777220F7D6800D0D825 /* ProfileTableView.swift */; };
+		43FF077A220F83BD00D0D825 /* ProfileTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FF0779220F83BD00D0D825 /* ProfileTableHeader.swift */; };
+		43FF077C220F84A000D0D825 /* ProfileTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43FF077B220F84A000D0D825 /* ProfileTableHeader.xib */; };
 		5A347BDE35A88CA6DC97146D /* Pods_The_Meal_Planner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C3DBE226C3753628053F48 /* Pods_The_Meal_Planner.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +101,9 @@
 		43CE2E5C220B7ED500257469 /* MealsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsTabViewController.swift; sourceTree = "<group>"; };
 		43CE2E5E220CE3DA00257469 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		43D8C7DB21F9435F00BB360E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		43FF0777220F7D6800D0D825 /* ProfileTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableView.swift; sourceTree = "<group>"; };
+		43FF0779220F83BD00D0D825 /* ProfileTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeader.swift; sourceTree = "<group>"; };
+		43FF077B220F84A000D0D825 /* ProfileTableHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableHeader.xib; sourceTree = "<group>"; };
 		66A2CEB89E92BFF5523DFE58 /* Pods-The Meal PlannerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Meal PlannerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Meal PlannerTests/Pods-The Meal PlannerTests.release.xcconfig"; sourceTree = "<group>"; };
 		6BB1C4663E1B18D522889C9D /* Pods-The Meal PlannerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Meal PlannerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Meal PlannerUITests/Pods-The Meal PlannerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		89D079BD787B85BF3D629E82 /* Pods-The Meal Planner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Meal Planner.release.xcconfig"; path = "Pods/Target Support Files/Pods-The Meal Planner/Pods-The Meal Planner.release.xcconfig"; sourceTree = "<group>"; };
@@ -163,7 +169,10 @@
 				434666A821F91CBE00918635 /* AppDelegate.swift */,
 				43792C23220902D9000377D9 /* Tabs.storyboard */,
 				435AE1632203C65100A0EF84 /* WebViewController.swift */,
+				43FF0779220F83BD00D0D825 /* ProfileTableHeader.swift */,
+				43FF077B220F84A000D0D825 /* ProfileTableHeader.xib */,
 				434666AA21F91CBE00918635 /* ViewController.swift */,
+				43FF0777220F7D6800D0D825 /* ProfileTableView.swift */,
 				43B2C65821F95A8C001141F1 /* CustomComponents.swift */,
 				43CE2E5E220CE3DA00257469 /* ProfileViewController.swift */,
 				435AE1612202AF8400A0EF84 /* FeedViewController.swift */,
@@ -348,6 +357,7 @@
 				43BB056D2200E3DA00103BB0 /* icon.png in Resources */,
 				4349540922063055007DF427 /* Authentication.storyboard in Resources */,
 				43792C24220902D9000377D9 /* Tabs.storyboard in Resources */,
+				43FF077C220F84A000D0D825 /* ProfileTableHeader.xib in Resources */,
 				4383EE572202569500DCFCFF /* icons8-cancel-filled-50.png in Resources */,
 				43D8C7DC21F9435F00BB360E /* GoogleService-Info.plist in Resources */,
 				43792C2E22090E54000377D9 /* profile.png in Resources */,
@@ -481,6 +491,8 @@
 				43CE2E5D220B7ED500257469 /* MealsTabViewController.swift in Sources */,
 				43BB05732201276F00103BB0 /* CreateAccountViewController.swift in Sources */,
 				435AE1642203C65100A0EF84 /* WebViewController.swift in Sources */,
+				43FF0778220F7D6900D0D825 /* ProfileTableView.swift in Sources */,
+				43FF077A220F83BD00D0D825 /* ProfileTableHeader.swift in Sources */,
 				43CE2E5F220CE3DA00257469 /* ProfileViewController.swift in Sources */,
 				435AE1602202ACB300A0EF84 /* ForgotPasswordViewController.swift in Sources */,
 				43BB05712201270B00103BB0 /* SignInViewController.swift in Sources */,

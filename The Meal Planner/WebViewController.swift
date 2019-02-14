@@ -24,10 +24,6 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         view = webView;
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent;
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad();
         
@@ -69,6 +65,10 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         title = webView.title;
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
 }

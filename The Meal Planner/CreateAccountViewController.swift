@@ -31,6 +31,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         Email.delegate = self;
         Password.delegate = self;
         ConfirmPassword.delegate = self;
+        Error.text = "";
     }
     
 

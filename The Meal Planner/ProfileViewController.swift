@@ -57,50 +57,36 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         ]
     ];
     
-    var headerHeight: CGFloat = CGFloat(0);
     
+    @IBOutlet weak var tableView: ProfileTableView!
     
-    @IBOutlet weak var ProfileImage: UIImageView!
-    @IBOutlet weak var Email: UILabel!
-    
-    
-    
-    @IBOutlet weak var tableView: UITableView!
-    
-    @IBOutlet weak var Header: UIView!
-    
-    @IBOutlet weak var HeaderTopAnchor: NSLayoutConstraint!
-    
-    @IBOutlet weak var containerScrollview: UIScrollView!
-    
-    @IBOutlet weak var ScrollviewBottom: NSLayoutConstraint!
-    
-    
-    @IBOutlet weak var tableHeight: NSLayoutConstraint!
-    
+    @IBOutlet weak var tableHeader: ProfileTableHeader!
+
+    var originalHeaderPos = CGFloat(0);
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        
-        self.containerScrollview.delegate = self;
         
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         self.tableView.prefetchDataSource = self as? UITableViewDataSourcePrefetching;
         
-        self.tableView.sectionHeaderHeight = UITableView.automaticDimension;
-        self.tableView.estimatedSectionHeaderHeight = 25;
-        
-        self.tableView.contentInset = UIEdgeInsets(top: Header.frame.height, left: 0, bottom: 0, right: 0);
-        
-        self.tableHeight.constant = self.tableView.contentSize.height;
-        
-        headerHeight = Header.frame.height;
-        
         tableView.layoutIfNeeded();
         
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
+        
+        //Add the pull to refresh controller
+        let pullToRefresh = UIRefreshControl();
+        
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = pullToRefresh;
+        } else {
+            tableView.addSubview(pullToRefresh);
+        }
+        
+        //Add refresh target
+        pullToRefresh.addTarget(self, action: #selector(ProfileViewController.fetchUserData), for: .valueChanged);
         
         fetchUserData();
         
@@ -109,19 +95,18 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let y = scrollView.contentOffset.y - tableView.contentOffset.y;
         
-        HeaderTopAnchor.constant = y - headerHeight;
+    }
+
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         
-        if HeaderTopAnchor.constant > 0 || HeaderTopAnchor.constant == -headerHeight {
-            HeaderTopAnchor.constant = 0;
-        }
-        
-        //Dtect if we have scrolled to the bottom
     }
     
     
-    func fetchUserData() {
+    @objc func fetchUserData() {
+        
+        //Reset activity
+        self.activity = [];
         
         //Get the name
         Database.database().reference(withPath: "/users/" + self.uid + "/name").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -137,7 +122,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         Database.database().reference(withPath: "/users/" + self.uid + "/email").observeSingleEvent(of: .value, with: { snapshot in
             let value = snapshot.value as? String ?? "";
             
-            self.Email.text = value;
+            self.tableHeader.Email.text = value;
         });
         
         //Get the image
@@ -148,7 +133,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             } else {
                 let image = UIImage(data: data!)!;
                 self.image = image;
-                self.ProfileImage.image = image;
+                self.tableHeader.ProfileImage.image = image;
                 
                 self.tableView.reloadData();
             }
@@ -181,6 +166,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             self.tableView.reloadData();
             
+            self.tableView.layoutIfNeeded();
         });
         
         
