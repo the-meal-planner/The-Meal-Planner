@@ -27,6 +27,8 @@
 		4383EE552202566900DCFCFF /* icons8-ok-filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 4383EE542202566900DCFCFF /* icons8-ok-filled-50.png */; };
 		4383EE572202569500DCFCFF /* icons8-cancel-filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 4383EE562202569500DCFCFF /* icons8-cancel-filled-50.png */; };
 		4383EE5B2202585100DCFCFF /* icons8-chevron-down-filled-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 4383EE5A2202585100DCFCFF /* icons8-chevron-down-filled-48.png */; };
+		439F607522177A3400666F63 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439F607422177A3400666F63 /* FeedTableViewController.swift */; };
+		439F607722178A8C00666F63 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439F607622178A8C00666F63 /* ProfileViewController.swift */; };
 		43B2C65921F95A8D001141F1 /* CustomComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B2C65821F95A8C001141F1 /* CustomComponents.swift */; };
 		43BB056D2200E3DA00103BB0 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 43BB056C2200E3D900103BB0 /* icon.png */; };
 		43BB05712201270B00103BB0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BB05702201270B00103BB0 /* SignInViewController.swift */; };
@@ -37,7 +39,6 @@
 		43CE2E59220B60B800257469 /* icons8-contacts-filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 43CE2E58220B60B800257469 /* icons8-contacts-filled-50.png */; };
 		43CE2E5B220B65CD00257469 /* view_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 43CE2E5A220B65CD00257469 /* view_profile.png */; };
 		43CE2E5D220B7ED500257469 /* MealsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CE2E5C220B7ED500257469 /* MealsTabViewController.swift */; };
-		43CE2E5F220CE3DA00257469 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CE2E5E220CE3DA00257469 /* ProfileViewController.swift */; };
 		43D8C7DC21F9435F00BB360E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 43D8C7DB21F9435F00BB360E /* GoogleService-Info.plist */; };
 		43FF0778220F7D6900D0D825 /* ProfileTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FF0777220F7D6800D0D825 /* ProfileTableView.swift */; };
 		43FF077A220F83BD00D0D825 /* ProfileTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FF0779220F83BD00D0D825 /* ProfileTableHeader.swift */; };
@@ -89,6 +90,8 @@
 		4383EE542202566900DCFCFF /* icons8-ok-filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-ok-filled-50.png"; path = "../../../Downloads/icons8-ok-filled-50.png"; sourceTree = "<group>"; };
 		4383EE562202569500DCFCFF /* icons8-cancel-filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-cancel-filled-50.png"; path = "../../../Downloads/icons8-cancel-filled-50.png"; sourceTree = "<group>"; };
 		4383EE5A2202585100DCFCFF /* icons8-chevron-down-filled-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-chevron-down-filled-48.png"; path = "../../../Downloads/icons8-chevron-down-filled-48.png"; sourceTree = "<group>"; };
+		439F607422177A3400666F63 /* FeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		439F607622178A8C00666F63 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		43B2C65821F95A8C001141F1 /* CustomComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomComponents.swift; sourceTree = "<group>"; };
 		43BB056C2200E3D900103BB0 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = "../../../Library/Containers/com.apple.mail/Data/Library/Mail Downloads/10897679-F317-42F8-8565-B4649A984AE0/icon.png"; sourceTree = "<group>"; };
 		43BB05702201270B00103BB0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -99,7 +102,6 @@
 		43CE2E58220B60B800257469 /* icons8-contacts-filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-contacts-filled-50.png"; sourceTree = "<group>"; };
 		43CE2E5A220B65CD00257469 /* view_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = view_profile.png; sourceTree = "<group>"; };
 		43CE2E5C220B7ED500257469 /* MealsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsTabViewController.swift; sourceTree = "<group>"; };
-		43CE2E5E220CE3DA00257469 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		43D8C7DB21F9435F00BB360E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		43FF0777220F7D6800D0D825 /* ProfileTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableView.swift; sourceTree = "<group>"; };
 		43FF0779220F83BD00D0D825 /* ProfileTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeader.swift; sourceTree = "<group>"; };
@@ -168,13 +170,14 @@
 			children = (
 				434666A821F91CBE00918635 /* AppDelegate.swift */,
 				43792C23220902D9000377D9 /* Tabs.storyboard */,
+				439F607622178A8C00666F63 /* ProfileViewController.swift */,
+				439F607422177A3400666F63 /* FeedTableViewController.swift */,
 				435AE1632203C65100A0EF84 /* WebViewController.swift */,
 				43FF0779220F83BD00D0D825 /* ProfileTableHeader.swift */,
 				43FF077B220F84A000D0D825 /* ProfileTableHeader.xib */,
 				434666AA21F91CBE00918635 /* ViewController.swift */,
 				43FF0777220F7D6800D0D825 /* ProfileTableView.swift */,
 				43B2C65821F95A8C001141F1 /* CustomComponents.swift */,
-				43CE2E5E220CE3DA00257469 /* ProfileViewController.swift */,
 				435AE1612202AF8400A0EF84 /* FeedViewController.swift */,
 				43CE2E5C220B7ED500257469 /* MealsTabViewController.swift */,
 				4349540822063055007DF427 /* Authentication.storyboard */,
@@ -493,9 +496,10 @@
 				435AE1642203C65100A0EF84 /* WebViewController.swift in Sources */,
 				43FF0778220F7D6900D0D825 /* ProfileTableView.swift in Sources */,
 				43FF077A220F83BD00D0D825 /* ProfileTableHeader.swift in Sources */,
-				43CE2E5F220CE3DA00257469 /* ProfileViewController.swift in Sources */,
 				435AE1602202ACB300A0EF84 /* ForgotPasswordViewController.swift in Sources */,
+				439F607722178A8C00666F63 /* ProfileViewController.swift in Sources */,
 				43BB05712201270B00103BB0 /* SignInViewController.swift in Sources */,
+				439F607522177A3400666F63 /* FeedTableViewController.swift in Sources */,
 				43CD5096220290A40003FF00 /* MainTabBarController.swift in Sources */,
 				43792C30220918F9000377D9 /* FeedItemView.swift in Sources */,
 				434666AB21F91CBE00918635 /* ViewController.swift in Sources */,

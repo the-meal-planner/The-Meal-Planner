@@ -27,11 +27,16 @@ class FeedViewController: UITableViewController {
         self.mainActivityIndicator.hidesWhenStopped = true;
         self.view.addSubview(self.mainActivityIndicator);
         
-        
+        navigationController?.navigationBar.shadowImage = nil;
         
         let profile = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25));
         profile.translatesAutoresizingMaskIntoConstraints = false;
         profile.clipsToBounds = true;
+        
+        let refreshControl = UIRefreshControl();
+        self.refreshControl = refreshControl;
+        
+        refreshControl.addTarget(self, action: #selector(FeedViewController.fetchFeedData), for: .valueChanged);
         
         profile.image = self.viewProfileImage;
         
@@ -77,7 +82,7 @@ class FeedViewController: UITableViewController {
         }
     }
     
-    func fetchFeedData() {
+    @objc func fetchFeedData() {
         
         //Start activityIndicator
         self.mainActivityIndicator.startAnimating();
@@ -86,7 +91,7 @@ class FeedViewController: UITableViewController {
         let uid = Auth.auth().currentUser!.uid;
         
         //TODO: Update this request with the correct paths and add Image support
-        Database.database().reference(withPath: "/users/" + uid + "/notifications").observe(DataEventType.value, with: { (snapshot) in
+        Database.database().reference(withPath: "/users/" + uid + "/notifications").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
             
             //Reset data
             self.feed = [[:]];
@@ -113,7 +118,7 @@ class FeedViewController: UITableViewController {
             
             self.mainActivityIndicator.stopAnimating();
             self.tableView.reloadData();
-            
+            self.refreshControl!.endRefreshing();
         });
     }
     
@@ -122,7 +127,7 @@ class FeedViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        tableView.rowHeight = UITableView.automaticDimension;
+        //tableView.rowHeight = UITableView.automaticDimension;
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -163,9 +168,12 @@ class FeedViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as? ProfileViewController;
-        let uid = Auth.auth().currentUser?.uid;
-        destination!.uid = uid!;
+        if segue.identifier == "ProfileSegue" {
+            let destination = segue.destination as? ProfileViewController;
+            let uid = Auth.auth().currentUser?.uid;
+            destination!.uid = uid!;
+        }
+        
     }
     
     //For resizing images
@@ -195,14 +203,6 @@ class FeedViewController: UITableViewController {
         return newImage!
     }
     
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

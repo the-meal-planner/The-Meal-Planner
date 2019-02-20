@@ -22,29 +22,31 @@
             <rect key="frame" x="0.0" y="0.0" width="359" height="169"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Person Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WsC-IZ-aBd">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Person Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WsC-IZ-aBd">
                     <rect key="frame" x="16" y="128" width="327" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="view_profile.png" translatesAutoresizingMaskIntoConstraints="NO" id="qDf-az-xI5">
-                    <rect key="frame" x="137" y="20" width="100" height="100"/>
+                    <rect key="frame" x="129.5" y="20" width="100" height="100"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="100" id="S3a-gd-tos"/>
-                        <constraint firstAttribute="width" secondItem="qDf-az-xI5" secondAttribute="height" multiplier="1:1" id="U0h-RC-j3j"/>
-                        <constraint firstAttribute="height" constant="100" id="bAE-KT-2KR"/>
+                        <constraint firstAttribute="width" constant="100" id="4a2-lW-XEp"/>
+                        <constraint firstAttribute="width" secondItem="qDf-az-xI5" secondAttribute="height" multiplier="1:1" id="AP1-qe-Fgu"/>
+                        <constraint firstAttribute="height" constant="100" id="qaC-3u-hpd"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="0.64539021600000002" green="0.29621575480000001" blue="0.13318427620000001" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="qDf-az-xI5" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="73C-wP-ayt"/>
-                <constraint firstItem="qDf-az-xI5" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="137" id="BCd-Uv-eue"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="WsC-IZ-aBd" secondAttribute="bottom" constant="20" id="8ma-ob-QLo"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="WsC-IZ-aBd" secondAttribute="bottom" constant="20" id="BxM-gi-g0K"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qDf-az-xI5" secondAttribute="trailing" constant="122" id="c0o-tN-zJf"/>
+                <constraint firstItem="WsC-IZ-aBd" firstAttribute="top" secondItem="qDf-az-xI5" secondAttribute="bottom" constant="8" id="DJg-qp-qBp"/>
+                <constraint firstItem="qDf-az-xI5" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="HaY-zu-35z"/>
+                <constraint firstItem="WsC-IZ-aBd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="VtY-MG-esb"/>
                 <constraint firstItem="WsC-IZ-aBd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="kAo-4H-PXU"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WsC-IZ-aBd" secondAttribute="trailing" constant="16" id="sb4-pG-46E"/>
+                <constraint firstItem="qDf-az-xI5" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="thD-5L-Re1"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
